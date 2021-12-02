@@ -1,6 +1,6 @@
 <?php
 
-namespace Weirdan\PsalmPluginSkeleton\Tests;
+namespace Kvush\LayerViolationPsalmPlugin\Tests;
 
 /**
  * Inherited Methods

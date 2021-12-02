@@ -1,6 +1,6 @@
 <?php
 
-namespace Weirdan\PsalmPluginSkeleton;
+namespace Kvush\LayerViolationPsalmPlugin;
 
 use SimpleXMLElement;
 use Psalm\Plugin\PluginEntryPointInterface;

@@ -1,16 +1,18 @@
 {
-    "name": "weirdan/psalm-plugin-skeleton",
-    "description": "Template to create psalm-plugin projects from",
+    "name": "kvush/layer-violation-psalm-plugin",
+    "description": "Detect layer violation psalm-plugin",
     "type": "psalm-plugin",
     "license": "MIT",
     "authors": [
         {
-            "name": "Bruce Weirdan",
-            "email": "weirdan@gmail.com"
+            "name": "Ilya Shashilov",
+            "email": "kvushisha@gmail.com"
         }
     ],
     "require": {
-        "vimeo/psalm": "dev-master"
+        "php": ">=7.1",
+        "vimeo/psalm": "4.13.*",
+        "ext-simplexml": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.5",
@@ -22,19 +24,19 @@
     },
     "extra": {
         "psalm": {
-            "pluginClass": "Weirdan\\PsalmPluginSkeleton\\Plugin"
+            "pluginClass": "Kvush\\LayerViolationPsalmPlugin\\Plugin"
         }
     },
     "autoload": {
         "psr-4": {
-            "Weirdan\\PsalmPluginSkeleton\\": [
+            "Kvush\\LayerViolationPsalmPlugin\\": [
                 "."
             ]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Weirdan\\PsalmPluginSkeleton\\Tests\\": [
+            "Kvush\\LayerViolationPsalmPlugin\\Tests\\": [
                 "tests/_support",
                 "tests"
             ]

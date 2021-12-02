@@ -1,9 +1,9 @@
 <?php
 
-namespace Weirdan\PsalmPluginSkeleton\Tests;
+namespace Kvush\LayerViolationPsalmPlugin\Tests;
 
 use SimpleXMLElement;
-use Weirdan\PsalmPluginSkeleton\Plugin;
+use Kvush\LayerViolationPsalmPlugin\Plugin;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
