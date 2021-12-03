@@ -36,7 +36,7 @@ class ConfigTest extends TestCase
     /**
      * @test
      */
-    public function provide_configurable_layers()
+    public function provide_configurable_layers(): void
     {
         $xml = <<<xml
 <?xml version="1.0" encoding="UTF-8"?>
