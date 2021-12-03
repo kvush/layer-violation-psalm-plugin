@@ -5,9 +5,10 @@
     <arg name="colors"/>
 
     <!-- Paths to check -->
-    <file>Plugin.php</file>
+    <file>src</file>
     <file>tests</file>
 
+    <exclude-pattern>*/tests/_run/*</exclude-pattern>
 
     <!-- inherit rules from: -->
     <rule ref="PSR12"/>

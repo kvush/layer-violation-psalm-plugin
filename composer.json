@@ -29,9 +29,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kvush\\LayerViolationPsalmPlugin\\": [
-                "."
-            ]
+            "Kvush\\LayerViolationPsalmPlugin\\": "src"
         }
     },
     "autoload-dev": {

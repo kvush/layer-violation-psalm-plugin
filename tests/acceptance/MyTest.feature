@@ -12,7 +12,9 @@ Feature: basics
           <directory name="."/>
         </projectFiles>
         <plugins>
-          <pluginClass class="Kvush\LayerViolationPsalmPlugin\Plugin" />
+          <pluginClass class="Kvush\LayerViolationPsalmPlugin\Plugin">
+            <context></context>
+          </pluginClass>
         </plugins>
       </psalm>
       """
