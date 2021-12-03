@@ -1,6 +1,6 @@
 {
     "name": "kvush/layer-violation-psalm-plugin",
-    "description": "Detect layer violation psalm-plugin",
+    "description": "Detect layer dependency violation psalm-plugin",
     "type": "psalm-plugin",
     "license": "MIT",
     "authors": [
