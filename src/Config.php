@@ -45,10 +45,10 @@ class Config
     }
 
     /**
-     * @param string $layerNamespace
+     * @param string $givenNamespace
      * @return array<string>
      */
-    public function getAcceptableForLayer(string $layerNamespace): array
+    public function getAcceptableForLayer(string $givenNamespace): array
     {
         $result = [];
 
@@ -65,8 +65,8 @@ class Config
                     }
                 }
                 if ($contextChild->getName() === 'layer') {
-                    $layerNamespaceAttribute = (string) $contextChild->attributes()['name'];
-                    if (strpos($layerNamespace, $layerNamespaceAttribute) === 0) {
+                    $namespaceFromConfig = (string) $contextChild->attributes()['name'];
+                    if (strpos($givenNamespace, $namespaceFromConfig) === 0) {
                         foreach ($contextChild as $layer) {
                             $result[] = (string) $layer->attributes()['name'];
                         }
