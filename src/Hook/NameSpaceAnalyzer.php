@@ -56,7 +56,13 @@ class NameSpaceAnalyzer implements AfterFileAnalysisInterface
 
         $isValid = false;
         foreach ($acceptableNamespaces as $acceptableNamespace) {
-            if (strpos($useNamespace, $acceptableNamespace) === 0) {
+            if (substr($acceptableNamespace, -2) === '\*') {
+                $acceptableNamespace = substr($acceptableNamespace, 0, -2);
+                if (strpos($useNamespace, $acceptableNamespace) === 0) {
+                    $isValid = true;
+                    break;
+                }
+            } elseif ($useNamespace === $acceptableNamespace) {
                 $isValid = true;
                 break;
             }

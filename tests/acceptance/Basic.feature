@@ -17,13 +17,16 @@ Feature: basics
               <common>
                 <acceptable name="JetBrains\PhpStorm" />
               </common>
-              <layer name="App\Domain\ContextA">
-                <acceptable name="App\Domain\ContextA" />
+              <layer name="App">
+                <acceptable name="Symfony\*" />
+              </layer>
+              <layer name="App\Domain\ContextA\*">
+                <acceptable name="App\Domain\ContextA\*" />
                 <acceptable name="App\DateTime" />
                 <acceptable name="App\EntityId" />
               </layer>
-              <layer name="App\Domain\ContextB">
-                <acceptable name="App\Domain\ContextB" />
+              <layer name="App\Domain\ContextB\*">
+                <acceptable name="App\Domain\ContextB\*" />
                 <acceptable name="App\EntityId" />
               </layer>
             </context>
@@ -31,7 +34,19 @@ Feature: basics
         </plugins>
       </psalm>
       """
-  Scenario: run without errors
+  Scenario: Some Kernel class in app root
+    Given I have the following code
+      """
+      <?php
+      namespace App;
+
+      use Symfony\SomeBundle;
+      use Symfony\OtherBundle;
+      """
+    When I run Psalm
+    Then I see no errors
+
+  Scenario: Legal import for Some Domain Model
     Given I have the following code
       """
       <?php
@@ -44,7 +59,21 @@ Feature: basics
     When I run Psalm
     Then I see no errors
 
-  Scenario: run with errors
+  Scenario: Illegal dependency on Symfony
+    Given I have the following code
+      """
+      <?php
+      namespace App\Domain\ContextA\Some\Model;
+
+      use Symfony\SomeBundle;
+      """
+    When I run Psalm
+    Then I see these errors
+      | Type                     | Message                                                   |
+      | LayerDependencyViolation | Not allowed dependency for App\Domain\ContextA\Some\Model |
+    And I see no other errors
+
+  Scenario: Illegal dependency on model from another context
     Given I have the following code
       """
       <?php
@@ -59,3 +88,16 @@ Feature: basics
       | LayerDependencyViolation | Not allowed dependency for App\Domain\ContextA\Some\Model |
     And I see no other errors
 
+  Scenario: Illegal dependency on internal
+    Given I have the following code
+      """
+      <?php
+      namespace App\Domain\ContextB\Model;
+
+      use App\EntityId\Internal;
+      """
+    When I run Psalm
+    Then I see these errors
+      | Type                     | Message                                                   |
+      | LayerDependencyViolation | Not allowed dependency for App\Domain\ContextB\Model |
+    And I see no other errors

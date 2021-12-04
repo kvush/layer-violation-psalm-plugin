@@ -65,13 +65,37 @@ class Config
                     }
                 }
                 if ($contextChild->getName() === 'layer') {
-                    $namespaceFromConfig = (string) $contextChild->attributes()['name'];
-                    if (strpos($givenNamespace, $namespaceFromConfig) === 0) {
-                        foreach ($contextChild as $layer) {
-                            $result[] = (string) $layer->attributes()['name'];
-                        }
-                    }
+                    $result = array_merge(
+                        $result,
+                        $this->processLayerElements($givenNamespace, $contextChild)
+                    );
                 }
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array<string>
+     */
+    private function processLayerElements(string $givenNamespace, SimpleXMLElement $contextChild): array
+    {
+        $result = [];
+        $namespaceFromConfig = (string) $contextChild->attributes()['name'];
+
+        // include nested namespaces in result
+        if (substr($namespaceFromConfig, -2) === '\*') {
+            $namespaceFromConfig = substr($namespaceFromConfig, 0, -2);
+            if (strpos($givenNamespace, $namespaceFromConfig) === 0) {
+                foreach ($contextChild as $layer) {
+                    $result[] = (string) $layer->attributes()['name'];
+                }
+            }
+        // include only strict matched namespaces in result
+        } elseif ($givenNamespace === $namespaceFromConfig) {
+            foreach ($contextChild as $layer) {
+                $result[] = (string) $layer->attributes()['name'];
             }
         }
 

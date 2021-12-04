@@ -19,15 +19,15 @@ Feature: multiple context
               </common>
             </context>
             <context>
-              <layer name="App\Domain\ContextA">
-                <acceptable name="App\Domain\ContextA" />
+              <layer name="App\Domain\ContextA\*">
+                <acceptable name="App\Domain\ContextA\*" />
                 <acceptable name="App\DateTime" />
                 <acceptable name="App\EntityId" />
               </layer>
             </context>
             <context>
-              <layer name="App\Domain\ContextB">
-                <acceptable name="App\Domain\ContextB" />
+              <layer name="App\Domain\ContextB\*">
+                <acceptable name="App\Domain\ContextB\*" />
                 <acceptable name="App\EntityId" />
               </layer>
             </context>
