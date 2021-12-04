@@ -1,5 +1,5 @@
 # Layer Violation Psalm Plugin
-
+[![Latest Stable Version](http://poser.pugx.org/kvush/layer-violation-psalm-plugin/v)](https://packagist.org/packages/kvush/layer-violation-psalm-plugin) [![Total Downloads](http://poser.pugx.org/kvush/layer-violation-psalm-plugin/downloads)](https://packagist.org/packages/kvush/layer-violation-psalm-plugin) [![Latest Unstable Version](http://poser.pugx.org/kvush/layer-violation-psalm-plugin/v/unstable)](https://packagist.org/packages/kvush/layer-violation-psalm-plugin) [![License](http://poser.pugx.org/kvush/layer-violation-psalm-plugin/license)](https://packagist.org/packages/kvush/layer-violation-psalm-plugin) [![PHP Version Require](http://poser.pugx.org/kvush/layer-violation-psalm-plugin/require/php)](https://packagist.org/packages/kvush/layer-violation-psalm-plugin)
 ### Installation
 
 ```
