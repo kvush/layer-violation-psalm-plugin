@@ -98,6 +98,6 @@ Feature: basics
       """
     When I run Psalm
     Then I see these errors
-      | Type                     | Message                                                   |
+      | Type                     | Message                                              |
       | LayerDependencyViolation | Not allowed dependency for App\Domain\ContextB\Model |
     And I see no other errors

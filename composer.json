@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=7.1",
-        "vimeo/psalm": "4.13.*",
+        "vimeo/psalm": "^4.13",
         "ext-simplexml": "*"
     },
     "require-dev": {
